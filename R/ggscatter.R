@@ -331,7 +331,7 @@ ggscatter_core <- function(data, x, y,
   # ++++++++++++
   if(star.plot){
     p <- p + .geom_exec(stat_stars, data = data,
-                        color = color, linetype = star.plot.lty, size = star.plot.lwd)
+                        color = color, linetype = star.plot.lty, linewidth = star.plot.lwd)
   }
 
   #/ star plots

@@ -29,6 +29,13 @@
   `ggpaired()` by using `linewidth` instead of `size` for connecting lines
   between paired data points.
 
+- **`ggecdf()` stat_ecdf size deprecation**: Fixed deprecation warning in
+  `ggecdf()` by using `linewidth` instead of `size` for the ECDF line.
+
+- **`ggscatter()` stat_stars size deprecation**: Fixed deprecation warning
+  in `ggscatter()` when `star.plot = TRUE` by using `linewidth` instead of
+  `size` for star plot segments.
+
 ### Locale Compatibility
 
 - **`stat_cor()` OutDec locale issue** (Issue #512): Fixed parsing error when
