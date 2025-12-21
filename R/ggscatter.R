@@ -265,7 +265,7 @@ ggscatter_core <- function(data, x, y,
   # Add marginal rug
   # +++++++++++
   if(rug) p <- p + .geom_exec(geom_rug, data = data,
-                         color = color, size = size/2)
+                         color = color, linewidth = size/2)
 
   # Add reg line or loess
   # ++++++++++++

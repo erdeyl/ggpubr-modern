@@ -21,6 +21,14 @@
   `default_aes` to use `after_stat(eq.label)`, `after_stat(hjust)`, and
   `after_stat(vjust)` instead of deprecated notation.
 
+- **`ggscatter()` geom_rug size deprecation**: Fixed deprecation warning in
+  `ggscatter()` when `rug = TRUE` by using `linewidth` instead of `size` for
+  `geom_rug()`.
+
+- **`ggpaired()` geom_line size deprecation**: Fixed deprecation warning in
+  `ggpaired()` by using `linewidth` instead of `size` for connecting lines
+  between paired data points.
+
 ### Locale Compatibility
 
 - **`stat_cor()` OutDec locale issue** (Issue #512): Fixed parsing error when
