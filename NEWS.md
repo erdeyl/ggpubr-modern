@@ -1,14 +1,38 @@
-# ggpubr 0.6.2.999
-
-## New features
-
-## Major changes
-
-## Minor changes
+# ggpubr 0.6.3
 
 ## Bug fixes
 
-- Reverted the `exact = FALSE` workaround from version 0.6.2 that forced non-default behavior on `wilcox.test()`. Instead, updated tests in `test-compare_means.R` and `test-stat_compare_means.R` to accept both legacy and R-devel p-values when exact conditional two-sample inference with ties is used (R-devel r88748). Tests now use flexible assertions to ensure compatibility across R versions without changing R's default `wilcox.test()` behavior (#649, #647).
+### ggplot2 3.4.0+ Compatibility
+
+- **`border()` size deprecation** (Issues #644, #654, #656): Fixed deprecation
+  warning in `border()` function by replacing deprecated `size` parameter with
+  `linewidth` in `element_rect()` as required by ggplot2 3.4.0+.
+
+- **`stat_cor()` deprecated ..var.. notation**: Updated `default_aes` to use
+  modern `after_stat()` syntax instead of deprecated `..hjust..` and `..vjust..`
+  notation. Also updated examples to use `after_stat(r.label)`,
+  `after_stat(rr.label)`, and `after_stat(p.label)`.
+
+- **`stat_compare_means()` deprecated ..var.. notation**: Updated `default_aes`
+  to use `after_stat(hjust)` and `after_stat(vjust)` instead of deprecated
+  `..hjust..` and `..vjust..` notation.
+
+- **`stat_regline_equation()` deprecated ..var.. notation**: Updated
+  `default_aes` to use `after_stat(eq.label)`, `after_stat(hjust)`, and
+  `after_stat(vjust)` instead of deprecated notation.
+
+### Locale Compatibility
+
+- **`stat_cor()` OutDec locale issue** (Issue #512): Fixed parsing error when
+  `options(OutDec = ",")` is set (European decimal separator) by explicitly
+  using `decimal.mark = "."` in `formatC()` calls within `get_corcoef_label()`.
+  This ensures R expressions parse correctly regardless of locale settings.
+
+### Previous version notes
+
+- Reverted the `exact = FALSE` workaround from version 0.6.2 that forced
+  non-default behavior on `wilcox.test()`. Tests now use flexible assertions
+  to ensure compatibility across R versions (#649, #647).
 
 # ggpubr 0.6.2
 
