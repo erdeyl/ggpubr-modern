@@ -234,8 +234,10 @@ ggballoonplot <- function(
   # Sretch the data into three columns
   .col <- .row <- NULL
   data <- data %>%
-    tidyr::gather(
-      key= ".col", value = "value", -.row
+    tidyr::pivot_longer(
+      cols = -".row",
+      names_to = ".col",
+      values_to = "value"
     ) %>%
     dplyr::mutate(
       .col = factor(.col, levels = .col.names),

@@ -337,11 +337,15 @@ compare_means <- function(formula, data, method = "wilcox.test",
 
   pvalues <- suppressWarnings(do.call(test, test.opts)$p.value) %>%
     as.data.frame()
-  ..group1.. <- ..group2.. <- p <- NULL
+  p <- NULL
   pvalues$..group2.. <- rownames(pvalues)
   pvalues <- pvalues %>%
-    tidyr::gather(key = "..group1..", value = "p", -..group2..) %>%
-    dplyr::select(group1 = ..group1.., group2 = ..group2.., p) %>%
+    tidyr::pivot_longer(
+      cols = -"..group2..",
+      names_to = "..group1..",
+      values_to = "p"
+    ) %>%
+    dplyr::select(group1 = "..group1..", group2 = "..group2..", p) %>%
     dplyr::filter(!is.na(p))
   pvalues
 }

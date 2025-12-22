@@ -42,6 +42,16 @@
 - **`ggballoonplot()` guides() FALSE deprecation**: Updated example to use
   `guides(size = "none")` instead of deprecated `guides(size = FALSE)`.
 
+### tidyr Compatibility
+
+- **`ggballoonplot()` tidyr::gather() deprecation**: Replaced deprecated
+  `tidyr::gather()` with `tidyr::pivot_longer()` in internal `.df_strech()`
+  function.
+
+- **`compare_means()` tidyr::gather() deprecation**: Replaced deprecated
+  `tidyr::gather()` with `tidyr::pivot_longer()` in internal
+  `.pairwise_twogroups_test()` function.
+
 ### Locale Compatibility
 
 - **`stat_cor()` OutDec locale issue** (Issue #512): Fixed parsing error when

@@ -7,6 +7,9 @@ NULL
 #' @param y one of "density" or "count".
 #' @param color,fill density line color and fill color.
 #' @param linetype line type. See \code{\link{show_line_types}}.
+#' @param linewidth numeric value specifying line width. This is the preferred
+#'   parameter for ggplot2 3.4.0+. If \code{size} is also specified, \code{linewidth}
+#'   takes precedence.
 #' @param alpha numeric value specifying fill color transparency. Value should
 #'   be in [0, 1], where 0 is full transparency and 1 is no transparency.
 #' @param add allowed values are one of "mean" or "median" (for adding mean or
