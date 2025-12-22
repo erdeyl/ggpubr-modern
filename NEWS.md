@@ -36,6 +36,12 @@
   in `ggscatter()` when `star.plot = TRUE` by using `linewidth` instead of
   `size` for star plot segments.
 
+- **`ggdensity()` geom_density size deprecation**: Fixed deprecation warning
+  in `ggdensity()` by using `linewidth` instead of `size` for density lines.
+
+- **`ggballoonplot()` guides() FALSE deprecation**: Updated example to use
+  `guides(size = "none")` instead of deprecated `guides(size = FALSE)`.
+
 ### Locale Compatibility
 
 - **`stat_cor()` OutDec locale issue** (Issue #512): Fixed parsing error when

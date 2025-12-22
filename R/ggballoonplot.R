@@ -93,7 +93,7 @@
 #' ggballoonplot(car_data, x = "Car", y = "Color",
 #'               size = "Value", fill = "Value") +
 #'    scale_fill_gradientn(colors = my_cols) +
-#'   guides(size = FALSE)
+#'   guides(size = "none")
 #'
 #'
 #' # Grouped frequency table
