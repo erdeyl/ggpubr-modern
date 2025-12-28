@@ -1,5 +1,20 @@
 # ggpubr 0.6.3
 
+## Issues Addressed
+
+This version addresses the following **6 issues** from the original ggpubr repository:
+
+| Issue | Description |
+|-------|-------------|
+| #656 | border() size deprecation warning |
+| #654 | border() size deprecation warning |
+| #645 | Deprecation in ggplot2 3.4.0 |
+| #644 | border() size deprecation warning |
+| #536 | tidyr 1.3.0 release notice |
+| #512 | stat_cor() OutDec locale issue |
+
+
+
 ## Bug fixes
 
 ### Package Dependency Updates
@@ -26,7 +41,7 @@
   `dplyr::do(utils::tail())` and `dplyr::do(utils::head())` with modern
   `dplyr::slice_tail()` and `dplyr::slice_head()` functions.
 
-### ggplot2 3.4.0+ Compatibility
+### ggplot2 3.4.0+ Compatibility (Issues #644, #645, #654, #656)
 
 - **`border()` size deprecation** (Issues #644, #654, #656): Fixed deprecation
   warning in `border()` function by replacing deprecated `size` parameter with
@@ -66,7 +81,7 @@
 - **`ggballoonplot()` guides() FALSE deprecation**: Updated example to use
   `guides(size = "none")` instead of deprecated `guides(size = FALSE)`.
 
-### tidyr Compatibility
+### tidyr Compatibility (Issue #536)
 
 - **`ggballoonplot()` tidyr::gather() deprecation**: Replaced deprecated
   `tidyr::gather()` with `tidyr::pivot_longer()` in internal `.df_strech()`
