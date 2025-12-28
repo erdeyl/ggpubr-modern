@@ -171,7 +171,7 @@ ggviolin_core <- function(data, x, y,
                 color = color, fill = fill, linetype = linetype,
                 trim = trim, size = linewidth, width = width, alpha = alpha,
                 position = position, draw_quantiles = draw_quantiles,
-                stat = pms$stat, scale = pms$scale)
+                stat = pms$stat, scale = pms$scale, adjust = pms$adjust)
 
   # Add
   #+++++++++++++++++++

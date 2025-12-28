@@ -109,6 +109,7 @@ keep_only_tbl_df_classes <- function(x){
   res$draw_quantiles  <- x$draw_quantiles
   res$scale <- ifelse(!is.null(x$scale), x$scale, "area")
   res$trim <- ifelse(!is.null(x$trim), x$trim, TRUE)
+  res$adjust <- x$adjust  # Bandwidth adjustment for kernel density (Issue #552)
   return(res)
 }
 
