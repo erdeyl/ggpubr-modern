@@ -107,7 +107,7 @@ R package version 0.6.3. https://github.com/erdeyl/ggpubr-modern
 ## Acknowledgments
 
 - **Alboukadel Kassambara** - Original author and maintainer of ggpubr
-- **Claude Code** - AI assistance in developing compatibility fixes
+- With the assistance of **Claude Code** in developing compatibility fixes
 
 ## Upstream Pull Request
 
