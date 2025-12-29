@@ -109,6 +109,7 @@ keep_only_tbl_df_classes <- function(x){
   res$draw_quantiles  <- x$draw_quantiles
   res$scale <- ifelse(!is.null(x$scale), x$scale, "area")
   res$trim <- ifelse(!is.null(x$trim), x$trim, TRUE)
+  res$adjust <- x$adjust  # Bandwidth adjustment for kernel density (Issue #552)
   return(res)
 }
 
@@ -917,12 +918,12 @@ p
 .add_center_line <- function(p, add = c("none", "mean", "median"), grouping.vars = NULL,
                              color = "black", linetype = "dashed", size = NULL, linewidth = NULL)
 {
+
   # Handle size vs linewidth parameter compatibility
   # size deprecated in ggplot2 v >= 3.4.0
   if (!is.null(linewidth)) {
     size <- linewidth
   }
-
   add <- match.arg(add)
   data <- p$data
   # x <- .mapping(p)$x

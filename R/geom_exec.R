@@ -37,8 +37,8 @@ geom_exec <- function (geomfunc = NULL, data = NULL,
     # dot plot
     "binwidth", "binaxis", "method", "binpositions",
     "stackdir", "stackratio", "dotsize",
-    # Violin
-    "trim", "draw_quantiles", "scale",
+    # Violin and density
+    "trim", "draw_quantiles", "scale", "adjust", "bw",
     # error
     "ymin", "ymax", "xmin", "xmax",
     # text

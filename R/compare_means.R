@@ -209,8 +209,9 @@ compare_means <- function(formula, data, method = "wilcox.test",
     dplyr::select(!!!syms(c(group.by, ".y.")), dplyr::everything())
 
   # Select only reference groups if any
+  # Skip for anova/kruskal.test which don't have group1/group2 columns (Issue #572)
   #::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-  if(!is.null(ref.group)){
+  if(!is.null(ref.group) && !method %in% c("anova", "kruskal.test")){
     group.levs <- .select_vec(data, group) %>% .levels()
     group1 <- NULL
     res <- res %>% dplyr::filter(group1 == ref.group | group2 == ref.group)

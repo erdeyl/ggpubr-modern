@@ -1,5 +1,23 @@
 # ggpubr 0.6.3
 
+## Issues Addressed
+
+This version addresses the following **9 issues** from the original ggpubr repository:
+
+| Issue | Description |
+|-------|-------------|
+| #656 | border() size deprecation warning |
+| #654 | border() size deprecation warning |
+| #645 | Deprecation in ggplot2 3.4.0 |
+| #644 | border() size deprecation warning |
+| #572 | compare_means() error with ref.group and anova |
+| #552 | ggviolin missing adjust parameter for bandwidth |
+| #536 | tidyr 1.3.0 release notice |
+| #512 | stat_cor() OutDec locale issue |
+| #490 | ggdensity missing bw parameter for bandwidth |
+
+
+
 ## Bug fixes
 
 ### Package Dependency Updates
@@ -26,7 +44,7 @@
   `dplyr::do(utils::tail())` and `dplyr::do(utils::head())` with modern
   `dplyr::slice_tail()` and `dplyr::slice_head()` functions.
 
-### ggplot2 3.4.0+ Compatibility
+### ggplot2 3.4.0+ Compatibility (Issues #644, #645, #654, #656)
 
 - **`border()` size deprecation** (Issues #644, #654, #656): Fixed deprecation
   warning in `border()` function by replacing deprecated `size` parameter with
@@ -66,7 +84,7 @@
 - **`ggballoonplot()` guides() FALSE deprecation**: Updated example to use
   `guides(size = "none")` instead of deprecated `guides(size = FALSE)`.
 
-### tidyr Compatibility
+### tidyr Compatibility (Issue #536)
 
 - **`ggballoonplot()` tidyr::gather() deprecation**: Replaced deprecated
   `tidyr::gather()` with `tidyr::pivot_longer()` in internal `.df_strech()`
@@ -82,6 +100,24 @@
   `options(OutDec = ",")` is set (European decimal separator) by explicitly
   using `decimal.mark = "."` in `formatC()` calls within `get_corcoef_label()`.
   This ensures R expressions parse correctly regardless of locale settings.
+
+### Kernel Density Parameter Fixes
+
+- **`ggviolin()` missing adjust parameter** (Issue #552): Added `adjust` parameter
+  to `ggviolin()` to allow users to control bandwidth adjustment for kernel density
+  estimation.
+
+- **`ggdensity()` missing bw parameter** (Issue #490): Added `bw` and `adjust`
+  parameters to the allowed options in `geom_exec()` so they properly pass through
+  to underlying `geom_density()`.
+
+### compare_means() Fixes
+
+- **`compare_means()` error with ref.group and anova** (Issue #572): Fixed error
+  "object 'group2' not found" when using `compare_means()` with `ref.group` and
+  `method = "anova"` or `method = "kruskal.test"`. The ref.group filtering is
+  now skipped for these methods since they perform overall group comparisons rather
+  than pairwise tests.
 
 ### Previous version notes
 
