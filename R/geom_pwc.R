@@ -407,7 +407,7 @@ StatPwc <- ggplot2::ggproto("StatPwc", ggplot2::Stat,
                                 if(grouping.var == "x"){
                                   nb.comparisons.by.group <- stat.test %>%
                                     rstatix::df_group_by(vars = grouping.var) %>%
-                                    dplyr::summarise(n = dplyr::n())
+                                    dplyr::summarise(n = dplyr::n(), .groups = "drop")
                                   bracket.group <- unlist(purrr::map(nb.comparisons.by.group$n, seq))
                                 }
                                 else if(grouping.var == "group" & bracket.group.by == "legend.var"){

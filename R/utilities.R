@@ -947,7 +947,7 @@ p
   else {
     data_sum <- data %>%
       group_by(!!!syms(grouping.vars)) %>%
-      summarise(.center = compute_center(!!sym(x), na.rm = TRUE))
+      summarise(.center = compute_center(!!sym(x), na.rm = TRUE), .groups = "drop")
     p <- p + geom_exec(geom_vline, data = data_sum,
                        xintercept = ".center", color = color,
                        linetype = linetype, linewidth = size)

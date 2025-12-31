@@ -34,7 +34,7 @@ Imports:
     gridExtra,
     glue,
     polynom,
-    rlang (>= 0.4.6),
+    rlang (>= 1.0.0),
     rstatix (>= 0.7.2),
     tibble,
     magrittr
