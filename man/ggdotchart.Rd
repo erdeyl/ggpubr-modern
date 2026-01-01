@@ -192,7 +192,7 @@ print(df2)
 ggdotchart(df2, x = "dose", y = "len",
           color = "supp", size = 3,
           add = "segment",
-          add.params = list(color = "lightgray", size = 1.5),
+          add.params = list(color = "lightgray", linewidth = 1.5),
           position = position_dodge(0.3),
           palette = "jco",
           ggtheme = theme_pubclean()

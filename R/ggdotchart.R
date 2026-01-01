@@ -63,7 +63,7 @@ NULL
 #'ggdotchart(df2, x = "dose", y = "len",
 #'           color = "supp", size = 3,
 #'           add = "segment",
-#'           add.params = list(color = "lightgray", size = 1.5),
+#'           add.params = list(color = "lightgray", linewidth = 1.5),
 #'           position = position_dodge(0.3),
 #'           palette = "jco",
 #'           ggtheme = theme_pubclean()
@@ -203,15 +203,11 @@ ggdotchart_core <- function(data, x, y, group = NULL,
     else option$color <- seg.col
 
 
+    # Use linewidth instead of size for geom_linerange (ggplot2 3.4.0+ compatibility)
     if(!is.null(add.params$size))
-      option$size <- add.params$size
-
-    # if(!is.null(add.params$color))
-    #   option$color <- add.params$color
-    # else if(!is.null(add.params$colour))
-    #   option$color <- add.params$colour
-    # if(!is.null(add.params$size))
-    #   option$size <- add.params$size
+      option$linewidth <- add.params$size
+    if(!is.null(add.params$linewidth))
+      option$linewidth <- add.params$linewidth
 
     option[["mapping"]] <- create_aes(mapping)
     p <- p + do.call(geom_linerange, option)
