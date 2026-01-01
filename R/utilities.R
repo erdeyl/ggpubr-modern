@@ -350,13 +350,20 @@ p
 
   if(!is.null(legend)) p <- p + theme(legend.position = legend)
 
-  if(!.is_empty(legend.title)){
+  # Handle legend.title - skip if empty string (used to hide legend title)
+  # Empty string causes "Ignoring unknown labels" warnings in ggplot2
+  if(!.is_empty(legend.title) && !(is.character(legend.title) && legend.title == "")){
 
     if(.is_list(legend.title)) p <- p + do.call(ggplot2::labs, legend.title)
     else {
       # Only set legend title for aesthetics actually used in the plot
       # to avoid "Ignoring unknown labels" warnings from ggplot2
+      # Check both plot-level and layer-level mappings
       used_aes <- names(p$mapping)
+      for(layer in p$layers) {
+        used_aes <- c(used_aes, names(layer$mapping))
+      }
+      used_aes <- unique(used_aes)
       labs_args <- list()
       if("colour" %in% used_aes || "color" %in% used_aes) labs_args$colour <- legend.title
       if("fill" %in% used_aes) labs_args$fill <- legend.title

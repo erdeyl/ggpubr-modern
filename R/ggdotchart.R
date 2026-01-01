@@ -241,19 +241,27 @@ ggdotchart_core <- function(data, x, y, group = NULL,
 
 
 # Set x text color
+# Note: Vectorized input to element_text() is not officially supported by ggplot2,
+# but this is a deliberate feature for Cleveland dot plots. We suppress the warning.
 .set_x_text_col <- function(p, label, angle){
   g <- ggplot2::ggplot_build(p)
   cols <- unlist(g$data[[1]]["colour"])
   names(cols) <- as.vector(label) # Give every color an appropriate name
-  p + theme(axis.text.x = element_text(colour = cols, angle = angle, hjust = 1))
+  suppressWarnings(
+    p + theme(axis.text.x = element_text(colour = cols, angle = angle, hjust = 1))
+  )
 }
 
 # Set y text color
+# Note: Vectorized input to element_text() is not officially supported by ggplot2,
+# but this is a deliberate feature for Cleveland dot plots. We suppress the warning.
 .set_y_text_col <- function(p, label, angle){
   g <- ggplot2::ggplot_build(p)
   cols <- unlist(g$data[[1]]["colour"])
   names(cols) <- as.vector(label) # Give every color an appropriate name
-  p + theme(axis.text.y = element_text(colour = cols))
+  suppressWarnings(
+    p + theme(axis.text.y = element_text(colour = cols))
+  )
 }
 
 
