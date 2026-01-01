@@ -123,9 +123,10 @@ ggqqplot_core <- function(data, x, y = "..qq..",
                  color = color,  size = size, shape = shape)
 
 
+  # Use linewidth instead of size for .stat_qqline (ggplot2 3.4.0+ compatibility)
   if ("qqline" %in% add) p <- p +
      geom_exec(.stat_qqline, data = data,
-               color = add.params$color,  size = add.params$size,
+               color = add.params$color,  linewidth = add.params$size,
                linetype = add.params$linetype, group = group)
 
   # Confidence interval
