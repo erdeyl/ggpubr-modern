@@ -1,6 +1,6 @@
 # ggpubrplus
 
-[![R-CMD-check](https://img.shields.io/badge/R--CMD--check-passing-brightgreen)](https://github.com/erdeyl/ggpubr-modern)
+[![R-CMD-check](https://img.shields.io/badge/R--CMD--check-passing-brightgreen)](https://github.com/erdeyl/ggpubrplus)
 [![License: GPL v2+](https://img.shields.io/badge/License-GPL%20v2+-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
 
 **A modernized fork of ggpubr with full compatibility for ggplot2 3.5.2+, dplyr 1.1.0+, tidyr 1.3.0+, and R 4.1.0+**

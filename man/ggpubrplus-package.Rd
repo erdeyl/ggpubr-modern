@@ -12,7 +12,7 @@ Extended version of 'ggpubr' with modernized code for compatibility with current
 General resources:
 
 \itemize{
-\item \href{https://github.com/erdeyl/ggpubr-modern}{ggpubrplus documentation}
+\item \href{https://github.com/erdeyl/ggpubrplus}{ggpubrplus documentation}
 \item \href{https://rpkgs.datanovia.com/ggpubr/}{Original ggpubr documentation}
 }
 }
@@ -38,8 +38,8 @@ when calling \code{\link{ggarrange}()} or \code{\link{as_ggplot}()}} }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/erdeyl/ggpubr-modern}
-  \item Report bugs at \url{https://github.com/erdeyl/ggpubr-modern/issues}
+  \item \url{https://github.com/erdeyl/ggpubrplus}
+  \item Report bugs at \url{https://github.com/erdeyl/ggpubrplus/issues}
 }
 
 }

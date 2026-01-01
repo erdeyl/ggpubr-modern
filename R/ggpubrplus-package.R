@@ -5,7 +5,7 @@
 #' General resources:
 #'
 #'\itemize{
-#' \item \href{https://github.com/erdeyl/ggpubr-modern}{ggpubrplus documentation}
+#' \item \href{https://github.com/erdeyl/ggpubrplus}{ggpubrplus documentation}
 #' \item \href{https://rpkgs.datanovia.com/ggpubr/}{Original ggpubr documentation}
 #'}
 #'

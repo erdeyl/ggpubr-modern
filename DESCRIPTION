@@ -47,8 +47,8 @@ Suggests:
     RColorBrewer,
     gtable,
     testthat
-URL: https://github.com/erdeyl/ggpubr-modern
-BugReports: https://github.com/erdeyl/ggpubr-modern/issues
+URL: https://github.com/erdeyl/ggpubrplus
+BugReports: https://github.com/erdeyl/ggpubrplus/issues
 RoxygenNote: 7.3.3
 Collate:
     'utilities_color.R'
