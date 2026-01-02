@@ -9,7 +9,7 @@ switch back to the original package.
 
 ## Issues Addressed
 
-This version addresses the following **9 issues** from the original ggpubr repository:
+This version addresses the following **10 issues** from the original ggpubr repository:
 
 | Issue | Description |
 |-------|-------------|
@@ -20,6 +20,7 @@ This version addresses the following **9 issues** from the original ggpubr repos
 | #572 | compare_means() error with ref.group and anova |
 | #552 | ggviolin missing adjust parameter for bandwidth |
 | #536 | tidyr 1.3.0 release notice |
+| #533 | Installation failure due to tidyr version conflict |
 | #512 | stat_cor() OutDec locale issue |
 | #490 | ggdensity missing bw parameter for bandwidth |
 
