@@ -274,10 +274,11 @@ ggscatter_core <- function(data, x, y,
     if(is.null(add.params$linetype)) add.params$linetype <- "solid"
     if(conf.int == FALSE) add.params$fill <- "lightgray"
 
+    # Use linewidth instead of size for geom_smooth (ggplot2 3.4.0+ compatibility)
     .args <- .geom_exec(NULL, data = data,
                         se = conf.int, level = conf.int.level,
                         color = add.params$color, fill = add.params$fill,
-                        linetype = add.params$linetype, size = add.params$size,
+                        linetype = add.params$linetype, linewidth = add.params$size,
                         fullrange = fullrange)
 
     mapping <- .args$mapping

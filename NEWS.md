@@ -84,6 +84,28 @@ This version addresses the following **9 issues** from the original ggpubr repos
 - **`ggballoonplot()` guides() FALSE deprecation**: Updated example to use
   `guides(size = "none")` instead of deprecated `guides(size = FALSE)`.
 
+- **`ggdotchart()` segment size deprecation**: Fixed deprecation warning in
+  `ggdotchart()` by using `linewidth` instead of `size` for line segments.
+
+- **`ggqqplot()` stat_qq_line size deprecation**: Fixed deprecation warning in
+  `ggqqplot()` by using `linewidth` instead of `size` for QQ lines.
+
+- **`facet()` panel.labs.background size deprecation**: Fixed deprecation warning
+  in `facet()` by using `linewidth` instead of `size` in `element_rect()` for
+  panel label backgrounds.
+
+- **`ggpar()` legend.title vectorized warning**: Fixed ggplot2 warning about
+  vectorized `element_text()` in legend title by ensuring single values are used.
+
+- **`ggpar()` 'Ignoring unknown labels' warning**: Fixed spurious warning about
+  unknown labels when setting legend title by properly handling NULL legend titles.
+
+- **`ggdotchart()` element_text vectorized warning**: Fixed ggplot2 warning
+  about vectorized `element_text()` in axis text formatting.
+
+- **`geom_exec()` stat function detection**: Added `stat_ecdf` and `stat_qq_line`
+  to the list of line-based functions that use `linewidth` instead of `size`.
+
 ### tidyr Compatibility (Issue #536)
 
 - **`ggballoonplot()` tidyr::gather() deprecation**: Replaced deprecated

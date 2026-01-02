@@ -63,7 +63,7 @@ NULL
 #'ggdotchart(df2, x = "dose", y = "len",
 #'           color = "supp", size = 3,
 #'           add = "segment",
-#'           add.params = list(color = "lightgray", size = 1.5),
+#'           add.params = list(color = "lightgray", linewidth = 1.5),
 #'           position = position_dodge(0.3),
 #'           palette = "jco",
 #'           ggtheme = theme_pubclean()
@@ -203,15 +203,11 @@ ggdotchart_core <- function(data, x, y, group = NULL,
     else option$color <- seg.col
 
 
+    # Use linewidth instead of size for geom_linerange (ggplot2 3.4.0+ compatibility)
     if(!is.null(add.params$size))
-      option$size <- add.params$size
-
-    # if(!is.null(add.params$color))
-    #   option$color <- add.params$color
-    # else if(!is.null(add.params$colour))
-    #   option$color <- add.params$colour
-    # if(!is.null(add.params$size))
-    #   option$size <- add.params$size
+      option$linewidth <- add.params$size
+    if(!is.null(add.params$linewidth))
+      option$linewidth <- add.params$linewidth
 
     option[["mapping"]] <- create_aes(mapping)
     p <- p + do.call(geom_linerange, option)
@@ -245,19 +241,27 @@ ggdotchart_core <- function(data, x, y, group = NULL,
 
 
 # Set x text color
+# Note: Vectorized input to element_text() is not officially supported by ggplot2,
+# but this is a deliberate feature for Cleveland dot plots. We suppress the warning.
 .set_x_text_col <- function(p, label, angle){
   g <- ggplot2::ggplot_build(p)
   cols <- unlist(g$data[[1]]["colour"])
   names(cols) <- as.vector(label) # Give every color an appropriate name
-  p + theme(axis.text.x = element_text(colour = cols, angle = angle, hjust = 1))
+  suppressWarnings(
+    p + theme(axis.text.x = element_text(colour = cols, angle = angle, hjust = 1))
+  )
 }
 
 # Set y text color
+# Note: Vectorized input to element_text() is not officially supported by ggplot2,
+# but this is a deliberate feature for Cleveland dot plots. We suppress the warning.
 .set_y_text_col <- function(p, label, angle){
   g <- ggplot2::ggplot_build(p)
   cols <- unlist(g$data[[1]]["colour"])
   names(cols) <- as.vector(label) # Give every color an appropriate name
-  p + theme(axis.text.y = element_text(colour = cols))
+  suppressWarnings(
+    p + theme(axis.text.y = element_text(colour = cols))
+  )
 }
 
 

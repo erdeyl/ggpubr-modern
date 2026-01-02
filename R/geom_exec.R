@@ -71,7 +71,7 @@ geom_exec <- function (geomfunc = NULL, data = NULL,
   is_line_geom <- function(f) {
     if (is.null(f)) return(FALSE)
 
-    # List of geoms that use linewidth in modern ggplot2
+    # List of geoms/stats that use linewidth in modern ggplot2
     line_geoms <- list(
       ggplot2::geom_line, ggplot2::geom_path, ggplot2::geom_segment,
       ggplot2::geom_step, ggplot2::geom_density, ggplot2::geom_freqpoly,
@@ -80,7 +80,8 @@ geom_exec <- function (geomfunc = NULL, data = NULL,
       ggplot2::geom_abline, ggplot2::geom_rug, ggplot2::geom_rect,
       ggplot2::geom_tile, ggplot2::geom_polygon, ggplot2::geom_ribbon,
       ggplot2::geom_area, ggplot2::geom_crossbar, ggplot2::geom_boxplot,
-      ggplot2::geom_violin
+      ggplot2::geom_violin,
+      ggplot2::stat_ecdf, ggplot2::stat_qq_line
     )
 
     for (geom in line_geoms) {

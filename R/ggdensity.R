@@ -164,7 +164,7 @@ ggdensity_core <- function(data, x, y = "density",
   # Add mean/median
   if(add %in% c("mean", "median")){
     p <- p %>% .add_center_line(add = add, grouping.vars = grouping.vars, color = add.params$color,
-                                linetype = add.params$linetype, size = add.params$size)
+                                linetype = add.params$linetype, linewidth = add.params$size)
   }
 
   # Add marginal rug
